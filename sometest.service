@@ -1,0 +1,16 @@
+# /etc/systemd/system/sometest.service
+[Unit]
+Description=Erlang some test app start
+
+[Service]
+Type=forking
+User=erlang
+Group=erlang
+WorkingDirectory=/home/erlang/sometest
+ExecStart=/usr/bin/make start
+Restart=always
+PIDFile=/home/erlang/sometest/activeapp.pid
+
+[Install]
+WantedBy=multi-user.target
+
